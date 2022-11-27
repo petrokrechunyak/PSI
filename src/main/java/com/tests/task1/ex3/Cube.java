@@ -9,7 +9,7 @@ public class Cube implements Shape{
     }
 
     @Override
-    public double volume() {
+    public double getVolume() {
         return Math.pow(border, 3);
     }
 

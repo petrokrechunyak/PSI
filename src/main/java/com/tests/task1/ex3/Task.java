@@ -11,7 +11,7 @@ public class Task {
         if(shapes == null)
             return Collections.emptyList();
         shapes = shapes.stream()
-                .sorted(Comparator.comparingDouble(Shape::volume))
+                .sorted(Comparator.comparingDouble(Shape::getVolume))
                 .collect(Collectors.toList());
         return shapes;
     }

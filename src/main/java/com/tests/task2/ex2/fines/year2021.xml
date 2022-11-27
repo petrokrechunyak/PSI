@@ -1,0 +1,37 @@
+<penalties>
+    <penalty>
+        <date_time>2021-05-05 15:39:03</date_time>
+        <first_name>Ivan</first_name>
+        <last_name>Ivanov</last_name>
+        <type>SPEEDING</type>
+        <fine_amount>210.50</fine_amount>
+    </penalty>
+    <penalty>
+        <date_time>2021-05-05 15:39:03</date_time>
+        <first_name>Petro</first_name>
+        <last_name>Petrov</last_name>
+        <type>RED LIGHT</type>
+        <fine_amount>515.05</fine_amount>
+    </penalty>
+    <penalty>
+        <date_time>2021-05-05 15:39:03</date_time>
+        <first_name>Vasil</first_name>
+        <last_name>Vasilev</last_name>
+        <type>ROAD ACCIDENT</type>
+        <fine_amount>340.00</fine_amount>
+    </penalty>
+    <penalty>
+        <date_time>2021-05-05 15:39:03</date_time>
+        <first_name>Andii</first_name>
+        <last_name>Andriev</last_name>
+        <type>ALCOHOL RIDING</type>
+        <fine_amount>1000.00</fine_amount>
+    </penalty>
+    <penalty>
+        <date_time>2021-05-05 15:39:03</date_time>
+        <first_name>Name</first_name>
+        <last_name>Namev</last_name>
+        <type>DRIVING WITHOUT LICENCE</type>
+        <fine_amount>590.40</fine_amount>
+    </penalty>
+</penalties>

@@ -1,0 +1,37 @@
+<penalties>
+    <penalty>
+        <date_time>2020-05-06 22:22:22</date_time>
+        <first_name>Ivan</first_name>
+        <last_name>Ivanov</last_name>
+        <type>ROAD ACCIDENT</type>
+        <fine_amount>1200.67</fine_amount>
+    </penalty>
+    <penalty>
+        <date_time>2020-05-07 11:11:24</date_time>
+        <first_name>Petro</first_name>
+        <last_name>Petrov</last_name>
+        <type>SPEEDING</type>
+        <fine_amount>490.35</fine_amount>
+    </penalty>
+    <penalty>
+        <date_time>2020-05-08 15:39:59</date_time>
+        <first_name>Vasil</first_name>
+        <last_name>Vasilev</last_name>
+        <type>RED LIGHT</type>
+        <fine_amount>140.70</fine_amount>
+    </penalty>
+    <penalty>
+        <date_time>2020-10-09 11:39:03</date_time>
+        <first_name>Andii</first_name>
+        <last_name>Andriev</last_name>
+        <type>DRIVING WITHOUT LICENCE</type>
+        <fine_amount>993.20</fine_amount>
+    </penalty>
+    <penalty>
+        <date_time>2020-01-01 15:40:03</date_time>
+        <first_name>Name</first_name>
+        <last_name>Namev</last_name>
+        <type>ALCOHOL RIDING</type>
+        <fine_amount>111.43</fine_amount>
+    </penalty>
+</penalties>

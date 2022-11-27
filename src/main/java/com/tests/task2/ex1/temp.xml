@@ -1,0 +1,18 @@
+<persons>
+    <person name
+                    =
+                    "name1"
+            surname =  "sur1" birthdate="11.11.1111"/>
+    <person surname="sur2" birthdate="22.22.2222"  name     ="name2"     /><person  birthdate=  "33.33.3333" name  ="name3"    surname=   "sur3" />
+    <person name="name4"     birthdate="44.44.4444" surname="sur4"          />
+    <person     birthdate="55.55.5555" surname="surnameend" name="end"  />
+        <person name="Іван" surname="Котляревський" birthDate="09.09.1769" />
+        <person surname="Шевченко" name="Тарас" birthDate="09.03.1814" />
+        <person
+                birthData="27.08.1856"
+                name = "Іван"
+                surname = "Франко" />
+        <person name="Леся"
+                surname="Українка"
+                birthData="13.02.1871" />
+</persons>

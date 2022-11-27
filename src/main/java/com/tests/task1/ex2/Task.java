@@ -1,6 +1,12 @@
 package com.tests.task1.ex2;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Task {
 
@@ -21,6 +27,13 @@ public class Task {
                 .forEach(x -> result.add(x.getKey()));
         Collections.reverse(result);
         return result;
+    }
+
+    public static Map<Integer, String> finder2(List<String> strings) {
+        if(strings == null)
+            return Collections.emptyMap();
+
+        return Collections.emptyMap();
     }
 
     public static void main(String[] args) {

@@ -12,7 +12,7 @@ public class Cylinder implements Shape {
     }
 
     @Override
-    public double volume() {
+    public double getVolume() {
         return baseSquare * height;
     }
 

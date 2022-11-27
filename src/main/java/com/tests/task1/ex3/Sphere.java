@@ -9,7 +9,7 @@ public class Sphere implements Shape{
     }
 
     @Override
-    public double volume() {
+    public double getVolume() {
         return (4 * Math.PI * Math.pow(radius, 3))/3;
     }
 
