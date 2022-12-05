@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
 
 public class Task {
 
-    private static final Pattern namePattern = Pattern.compile("\\s+name\\s*=\\s*\"([A-Za-zа-яА-ЯіІїЇєЄ0-9]+)\"", Pattern.UNICODE_CASE);
-    private static final Pattern surnamePattern = Pattern.compile("\\s+surname\\s*=\\s*\"([A-Za-zа-яА-Яіїє0-9]+)\"", Pattern.UNICODE_CASE);
+    private static final Pattern namePattern = Pattern.compile("\\s+name\\s*=\\s*\"([A-Za-zа-яА-ЯіІїЇєЄґҐ0-9]+)\"", Pattern.UNICODE_CASE);
+    private static final Pattern surnamePattern = Pattern.compile("\\s+surname\\s*=\\s*\"([A-Za-zа-яА-ЯіїєґҐ0-9]+)\"", Pattern.UNICODE_CASE);
 
     public static void main(String[] args) {
 
@@ -36,6 +36,7 @@ public class Task {
         }
     }
 
+    // Changes person xml tag to parsed look
     private static String parsePerson(String person) {
         Matcher nameMatcher = namePattern.matcher(person);
         Matcher surnameMatcher = surnamePattern.matcher(person);

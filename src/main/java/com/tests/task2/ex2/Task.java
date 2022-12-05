@@ -17,18 +17,28 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class Task {
 
-    static Map<String, Double> sortedMap = new HashMap<>();
+    private Map<String, Double> sortedMap = new HashMap<>();
 
     public static void main(String[] args) throws Exception {
+        Task task = new Task();
 
+        task.main();
+
+    }
+
+    private void main() throws Exception {
         File dir = new File("./fines");
         File[] files = dir.listFiles();
 
+        SAXParserFactory parserFactor = SAXParserFactory.newInstance();
+        SAXParser parser = parserFactor.newSAXParser();
+        SAXHandler handler = new SAXHandler();
+
         if (files != null) {
             for (File file : files) {
-                SAXParserFactory parserFactor = SAXParserFactory.newInstance();
-                SAXParser parser = parserFactor.newSAXParser();
-                SAXHandler handler = new SAXHandler();
+                if(file.length() == 0L || !file.getName().endsWith(".xml"))
+                    continue;
+                handler.penalty = null;
                 parser.parse(file, handler);
             }
 
@@ -37,7 +47,8 @@ public class Task {
         }
     }
 
-    private static Map<String, Double> sortMap() {
+    // sorts finished map and returns it
+    private Map<String, Double> sortMap() {
         return sortedMap.entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByValue(Collections.reverseOrder()))
@@ -49,7 +60,8 @@ public class Task {
                 ));
     }
 
-    private static void writeJson() {
+    // writes sortedMap with fines to json
+    private void writeJson() {
         JsonFactory factory = new JsonFactory();
         try (JsonGenerator generator = factory.createGenerator(new FileWriter("./done/result.json"))) {
             generator.useDefaultPrettyPrinter();
@@ -63,7 +75,7 @@ public class Task {
         }
     }
 
-    static class SAXHandler extends DefaultHandler {
+    class SAXHandler extends DefaultHandler {
 
         Penalty penalty = null;
         String content = null;
