@@ -26,7 +26,7 @@ public class Task {
 
     private Map<String, Double> sortedMap = new ConcurrentHashMap<>();
     private static final String PATH = "src/main/java/com/tests/task5_6/ex5/";
-    private static final int THREADS = 1; // 1 - 20800 2 - 3 4 -
+    private static final int THREADS = 1;
 
     public static void main(String[] args) throws Exception {
         List<Long> integerList = new ArrayList<>();
