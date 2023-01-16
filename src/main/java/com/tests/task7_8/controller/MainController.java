@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @Controller("/")
 public class MainController {
@@ -23,7 +21,7 @@ public class MainController {
     public String getLogin(HttpServletRequest request) {
         UserDto user = (UserDto) request.getSession().getAttribute("user");
         System.out.println(user);
-        if(user != null)
+        if (user != null)
             return "redirect:/";
         return "login";
     }
@@ -33,7 +31,7 @@ public class MainController {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         User user = userRepository.getByLoginAndPassword(login, password);
-        if(user == null) {
+        if (user == null) {
             model.addAttribute("errorMsg", "Дані для авторизації невірні");
             return "login";
         }
@@ -50,7 +48,7 @@ public class MainController {
     @GetMapping("/")
     public String getHome(Model model, HttpServletRequest request) {
         UserDto user = (UserDto) request.getSession().getAttribute("user");
-        if(user == null)
+        if (user == null)
             return "redirect:/login";
         model.addAttribute("user", user.getName());
         return "home";
@@ -59,7 +57,7 @@ public class MainController {
     @GetMapping("/names")
     public String getNames(Model model, HttpServletRequest request) {
         UserDto user = (UserDto) request.getSession().getAttribute("user");
-        if(user == null)
+        if (user == null)
             return "redirect:/login";
         model.addAttribute("users", userRepository.findAll());
         return "names";
@@ -68,7 +66,7 @@ public class MainController {
     @PostMapping("/logout")
     public String postLogout(HttpServletRequest request) {
         UserDto user = (UserDto) request.getSession().getAttribute("user");
-        if(user != null) {
+        if (user != null) {
             request.getSession().setAttribute("user", null);
         }
         return "redirect:/login";

@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Task {
 
     public static List<Shape> sorter(List<Shape> shapes) {
-        if(shapes == null)
+        if (shapes == null)
             return Collections.emptyList();
         shapes = shapes.stream()
                 .sorted(Comparator.comparingDouble(Shape::getVolume))

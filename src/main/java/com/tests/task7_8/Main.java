@@ -18,7 +18,7 @@ public class Main {
     }
 
     @Bean
-    InitializingBean initialize () {
+    InitializingBean initialize() {
         return () -> {
             userRepository.save(new User("Petro", "Petro", "123"));
             userRepository.save(new User("Ivan", "Ivanlogin", "password"));

@@ -2,25 +2,21 @@ package com.tests.task5_6.ex5;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
 public class Task {
 
@@ -37,10 +33,10 @@ public class Task {
             integerList.add(System.currentTimeMillis() - a);
         }
         int i = 0;
-        for (long l: integerList) {
+        for (long l : integerList) {
             i += l;
         }
-        i = i/5;
+        i = i / 5;
         System.out.println(i);
     }
 
@@ -55,30 +51,30 @@ public class Task {
 
         ExecutorService executorService = Executors.newFixedThreadPool(THREADS);
 
-            if (files != null) {
-                for (File file : files) {
-                    CompletableFuture.supplyAsync(() -> file, executorService)
-                            .thenAccept(f -> {
-                                if (file.length() == 0L || !file.getName().endsWith(".xml"))
-                                    return;
-                                handler.penalty = null;
-                                try {
-                                    parser.parse(file, handler);
-                                } catch (SAXException | IOException e) {
-                                    throw new RuntimeException(e);
-                                }
-                            });
-                }
-                executorService.shutdown();
-                while (!executorService.isTerminated()) {
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-
+        if (files != null) {
+            for (File file : files) {
+                CompletableFuture.supplyAsync(() -> file, executorService)
+                        .thenAccept(f -> {
+                            if (file.length() == 0L || !file.getName().endsWith(".xml"))
+                                return;
+                            handler.penalty = null;
+                            try {
+                                parser.parse(file, handler);
+                            } catch (SAXException | IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
             }
+            executorService.shutdown();
+            while (!executorService.isTerminated()) {
+                try {
+                    Thread.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
         sortedMap = sortMap();
         writeJson();
         System.out.println(System.currentTimeMillis() - a);
@@ -119,10 +115,8 @@ public class Task {
 
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) {
-            switch (qName) {
-                case "penalty":
-                    penalty = new Penalty();
-                    break;
+            if (qName.equals("penalty")) {
+                penalty = new Penalty();
             }
         }
 

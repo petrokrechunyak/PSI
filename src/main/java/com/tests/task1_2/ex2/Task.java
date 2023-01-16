@@ -1,25 +1,20 @@
 package com.tests.task1_2.ex2;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Task {
 
     public static List<String> finder(List<String> strings) {
-        if(strings == null)
+        if (strings == null)
             return Collections.emptyList();
         Map<String, Integer> hashtags = new HashMap<>();
         List<String> result = new ArrayList<>();
-        for (String str: strings) {
+        for (String str : strings) {
             Arrays.stream(str.split(" "))
                     .filter(x -> x.startsWith("#"))
                     .distinct()
-                    .forEach(x -> hashtags.put(x, hashtags.getOrDefault(x, 0)+1));
+                    .forEach(x -> hashtags.put(x, hashtags.getOrDefault(x, 0) + 1));
         }
         hashtags.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue())
@@ -30,14 +25,14 @@ public class Task {
     }
 
     public static Map<Integer, String> finder2(List<String> strings) {
-        if(strings == null)
+        if (strings == null)
             return Collections.emptyMap();
 
         return Collections.emptyMap();
     }
 
     public static void main(String[] args) {
-        List<String> strings = List.of("#1 #1 #1 1 #1 #2 #2 #2 #4", "#4 #2", "#1 #2 #3 #4 #5 #6" , " #1 #2 #3 #4 #5 234 24 4 4 4 #2", "4 #2");
+        List<String> strings = List.of("#1 #1 #1 1 #1 #2 #2 #2 #4", "#4 #2", "#1 #2 #3 #4 #5 #6", " #1 #2 #3 #4 #5 234 24 4 4 4 #2", "4 #2");
         System.out.println(finder(strings));
     }
 

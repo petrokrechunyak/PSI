@@ -1,10 +1,6 @@
 package com.tests.task3_4.ex4;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -43,7 +39,7 @@ public class Task {
         while (nameMatcher.find() && surnameMatcher.find()) {
             String name = nameMatcher.group(1);
             String surname = surnameMatcher.group(1);
-            person = person.replaceAll("\\ssurname\\s*=\\s*\""+surname+"\"\\s*", " ")
+            person = person.replaceAll("\\ssurname\\s*=\\s*\"" + surname + "\"\\s*", " ")
                     .replaceAll(name, name + " " + surname);
         }
         return person;

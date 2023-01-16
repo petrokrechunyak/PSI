@@ -2,6 +2,11 @@ package com.tests.task3_4.ex3;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import org.xml.sax.Attributes;
+import org.xml.sax.helpers.DefaultHandler;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,10 +15,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import org.xml.sax.Attributes;
-import org.xml.sax.helpers.DefaultHandler;
 
 public class Task {
 
@@ -36,7 +37,7 @@ public class Task {
 
         if (files != null) {
             for (File file : files) {
-                if(file.length() == 0L || !file.getName().endsWith(".xml"))
+                if (file.length() == 0L || !file.getName().endsWith(".xml"))
                     continue;
                 handler.penalty = null;
                 parser.parse(file, handler);
@@ -82,10 +83,8 @@ public class Task {
 
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attributes) {
-            switch (qName) {
-                case "penalty":
-                    penalty = new Penalty();
-                    break;
+            if (qName.equals("penalty")) {
+                penalty = new Penalty();
             }
         }
 

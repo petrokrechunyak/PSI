@@ -1,6 +1,6 @@
 package com.tests.task1_2.ex3;
 
-public class Cube implements Shape{
+public class Cube implements Shape {
 
     private final double border;
 
