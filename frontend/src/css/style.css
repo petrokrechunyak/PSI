@@ -1,0 +1,29 @@
+html {
+    background-color: #0c1a19;
+    color: white;
+}
+
+table {
+    margin: 20px auto;
+}
+
+td {
+    border: 1px solid #96aca0;
+    padding: 15px;
+    background-color: #4e555c;
+}
+
+td:not(.history):hover {
+    background-color: #324c44;
+}
+
+.history {
+    padding-top: 20px;
+    background-color: inherit;
+    overflow: auto;
+    height: 200px;
+}
+
+.equals {
+    background-color: darkorange;
+}
